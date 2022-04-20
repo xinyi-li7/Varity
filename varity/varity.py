@@ -17,15 +17,16 @@ import argparse
 def writeProgramCode(fileName):
     # Write C code
     p = gen_program.Program()
-    (code, allTypes) = p.printCode()
-    writeInputFile(fileName, allTypes)
-    f = open(fileName, "w")
-    f.write(code)
-    f.close()
+    #(code, allTypes) = p.printCode()
+    #writeInputFile(fileName, allTypes)
+    #f = open(fileName, "w")
+    #f.write(code)
+    #f.close()
 
     # Write CUDA code
     (code, allTypes) = p.printCode(True)
-    f = open(fileName+"u", "w")
+    writeInputFile(fileName, allTypes)
+    f = open(fileName, "w")
     f.write(code)
     f.close()
 
@@ -52,10 +53,14 @@ def getExtraOptimization(compiler_name, e: int):
         if e == 1:
             ret = "-nofma"
         ret = ret + " -c99"
+    #elif "nvcc" in compiler_name:
+    #    if e == 1:
+    #        ret = "--fmad=false"
+    #    ret = ret + " -arch=sm_86"
     elif "nvcc" in compiler_name:
         if e == 1:
-            ret = "--fmad=false"
-        ret = ret + " -arch=sm_70"
+            ret = "--use_fast_math"
+        ret = ret + " -arch=sm_86"
     elif "xlc" in compiler_name:
         if e == 1:
             ret = "-qfloat=nomaf"
@@ -70,13 +75,15 @@ def compileCode(config):
         libs = " -lm "
         more_ops = getExtraOptimization(compiler_name, other_op)
         extra_name = ""
+        #if other_op == 1:
+        #    extra_name = "_nofma"
         if other_op == 1:
-            extra_name = "_nofma"
+            extra_name = "_fastmath"
         compilation_arguments = [compiler_path, op_level, more_ops, libs, "-o", fileName+"-"+compiler_name+op_level+extra_name+".exe", fileName]
         cmd = " ".join(compilation_arguments)
         #cmd = compiler_path + " " + op_level + " " + more_ops + " " + libs + " -o " + fileName + "-" + compiler_name + op_level + extra_name + ".exe " + fileName
-        if isCUDACompiler(compiler_name):
-            cmd = cmd+"u"
+        #if isCUDACompiler(compiler_name):
+        #    cmd = cmd+"u"
 
         out = subprocess.check_output(cmd, shell=True)
         os.chdir(pwd)
@@ -98,7 +105,7 @@ def generateTests():
         
         # Write the program source code
         for t in range(cfg.TESTS_PER_GROUP): 
-            fileName = p + "/_test_" + str(t+1) + ".c"
+            fileName = p + "/_test_" + str(t+1) + ".cu"
             fileNameList.append(fileName)
 
     cpuCount = mp.cpu_count()
@@ -118,7 +125,7 @@ def compileTests(path):
     for g in range(cfg.NUM_GROUPS):
         p = path + "/" + cfg.TESTS_DIR + "/_group_" + str(g+1)
         for t in range(cfg.TESTS_PER_GROUP):
-            fileName = "_test_" + str(t+1) + ".c"
+            fileName = "_test_" + str(t+1) + ".cu"
             for c in cfg.COMPILERS:
                 compiler_name = c[0]
                 compiler_path = c[1]

@@ -21,7 +21,7 @@ def getInputTypes(fullProgName):
     inputFile = fullProgName+".input"
     fd = open(inputFile, 'r')
     types = fd.readlines()[0][:-1].split(",")
-    #print("file: {} types: {}".format(inputFile, types))
+   # print("file: {} types: {}".format(inputFile, types))
     fd.close()
     return types
 
@@ -47,7 +47,9 @@ def getAllTests(fullProgName):
     global PROG_PER_TEST
     # This is a list of all the tests
     allTests = glob.glob(fullProgName+"*.exe")
+    print(fullProgName)
     PROG_PER_TEST[fullProgName] = allTests
+
 
 '''
 def spawnProc(config):
@@ -110,6 +112,7 @@ def runTestsSerial():
         results = []
         for n in range(cfg.INPUT_SAMPLES_PER_RUN):
             inputs = generateInputs(fullProgName)
+            #print(PROG_PER_TEST)
             for t in PROG_PER_TEST[k]:
                 try:
                     cmd = t + " " + inputs
@@ -189,8 +192,9 @@ def run(dir):
     # Walk on the directory tree
     for dirName, subdirList, fileList in os.walk(dir):
         for fname in fileList:
-            if fname.endswith('.c'):
+            if fname.endswith('.cu'):
                 fullPath = dirName+"/"+fname
+                print(fullPath)
                 getAllTests(fullPath)
     #runTests()
     runTestsSerial()

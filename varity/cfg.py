@@ -16,7 +16,7 @@ MATH_FUNC_PROBABILITY = 0.2
 
 # Number of directories per experiment.
 # Each directory is a group.
-NUM_GROUPS = 2
+NUM_GROUPS = 1
 
 # Number of tests per group
 TESTS_PER_GROUP = 50
@@ -28,7 +28,7 @@ TESTS_PER_GROUP = 50
 COMPILERS = [("nvcc", "/usr/local/cuda/bin/nvcc")]
 
 # Levels of optimization to try
-OPT_LEVELS = [("-O0", 1), ("-O0", 0), ("-O1", 0), ("-O2", 0), ("-O3", 0)]
+OPT_LEVELS = [("-O0", 1), ("-O0", 0), ("-O1", 0),("-O1",1), ("-O2", 0),("-O2",1), ("-O3", 0),("-O3",1)]
 #OPT_LEVELS = ["-O0", "-O1"]
 
 # Name of root directory 
