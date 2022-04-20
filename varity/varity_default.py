@@ -55,7 +55,7 @@ def getExtraOptimization(compiler_name, e: int):
     elif "nvcc" in compiler_name:
         if e == 1:
             ret = "--fmad=false"
-        ret = ret + " -arch=sm_70"
+        ret = ret + " -arch=sm_60"
     elif "xlc" in compiler_name:
         if e == 1:
             ret = "-qfloat=nomaf"
