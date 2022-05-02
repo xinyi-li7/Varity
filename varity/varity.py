@@ -7,6 +7,7 @@ import gen_program
 import cfg
 import run
 import type_checking
+import dump
 
 # Python modules
 import subprocess
@@ -163,11 +164,14 @@ def runTests(dir):
     #p = dir
     run.run(dir)
 
+def dumpSASS(dir):
+    dump.dump(dir)
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-g", "--generate", help="generate programs",action="store_true")
     parser.add_argument("-c", "--compile", type=str, help="compile programs in dir: COMPILE")
     parser.add_argument("-r", "--run", type=str, help="run programs in dir: RUN")
+    parser.add_argument("-d","--dump",type=str,help="dump the SASS codes for each file")
     args = parser.parse_args()
     
     if len(sys.argv) == 1:
@@ -181,6 +185,7 @@ def main():
             compileTests(args.compile)
         if args.run:
             runTests(args.run)
-
+        if args.dump:
+            dumpSASS(args.dump)
 if __name__ == '__main__':
     main()

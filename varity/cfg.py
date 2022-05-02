@@ -19,7 +19,7 @@ MATH_FUNC_PROBABILITY = 0.2
 NUM_GROUPS = 1
 
 # Number of tests per group
-TESTS_PER_GROUP = 50
+TESTS_PER_GROUP = 500
 
 # Set of commpilers to test.
 # COMPILERS is a list containing tuples (x, y), 
@@ -32,7 +32,7 @@ OPT_LEVELS = [("-O0", 1), ("-O0", 0), ("-O1", 0),("-O1",1), ("-O2", 0),("-O2",1)
 #OPT_LEVELS = ["-O0", "-O1"]
 
 # Name of root directory 
-TESTS_DIR = "_tests_double"
+TESTS_DIR = "_tests_single_"
 
 ###############################################################################
 # Running options
