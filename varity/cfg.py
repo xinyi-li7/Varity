@@ -19,7 +19,7 @@ MATH_FUNC_PROBABILITY = 0.2
 NUM_GROUPS = 1
 
 # Number of tests per group
-TESTS_PER_GROUP = 500
+TESTS_PER_GROUP = 50
 
 # Set of commpilers to test.
 # COMPILERS is a list containing tuples (x, y), 
@@ -32,7 +32,8 @@ OPT_LEVELS = [("-O0", 1), ("-O0", 0), ("-O1", 0),("-O1",1), ("-O2", 0),("-O2",1)
 #OPT_LEVELS = ["-O0", "-O1"]
 
 # Name of root directory 
-TESTS_DIR = "_tests_single_"
+#TESTS_DIR = "_tests_single_"
+TESTS_DIR = "_tests_double_"
 
 ###############################################################################
 # Running options
@@ -45,5 +46,5 @@ INPUT_SAMPLES_PER_RUN = 5
 # Flaoting-point types
 ###############################################################################
 
-REAL_TYPE = "double"
-#REAL_TYPE = "float"
+#REAL_TYPE = "double"
+REAL_TYPE = "float"
