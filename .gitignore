@@ -1,4 +1,5 @@
-
+.sass
+.input
 __pycache__
 _tests*
 *.exe

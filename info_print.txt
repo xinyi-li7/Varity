@@ -1,0 +1,717 @@
+------------- NVBit (NVidia Binary Instrumentation Tool v1.5.4) Loaded --------------
+NVBit core environment variables (mostly for nvbit-devs):
+            NVDISASM = nvdisasm - override default nvdisasm found in PATH
+            NOBANNER = 0 - if set, does not print this banner
+---------------------------------------------------------------------------------
+         INSTR_BEGIN = 0 - Beginning of the instruction interval where to apply instrumentation
+           INSTR_END = 4294967295 - End of the instruction interval where to apply instrumentation
+        KERNEL_BEGIN = 0 - Beginning of the kernel launch interval where to apply instrumentation
+          KERNEL_END = 4294967295 - End of the kernel launch interval where to apply instrumentation
+        TOOL_VERBOSE = 1 - Enable verbosity inside the tool
+    COUNT_WARP_LEVEL = 1 - Count warp level or thread level instructions
+    EXCLUDE_PRED_OFF = 0 - Exclude predicated off instruction from count
+----------------------------------------------------------------------------------------------------
+inspecting compute(float, int, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float) - num instrs 624
+Instr 0 @ 0x0 (0) - IMAD.MOV.U32 R1, RZ, RZ, c[0x0][0x28] ;
+Instr 1 @ 0x10 (16) - MUFU.RCP R0, c[0x0][0x170] ;
+Instr 2 @ 0x20 (32) - IMAD.MOV.U32 R4, RZ, RZ, c[0x0][0x170] ;
+Instr 3 @ 0x30 (48) - ULDC UR4, c[0x0][0x16c] ;
+Instr 4 @ 0x40 (64) - IADD3 R1, R1, -0x28, RZ ;
+Instr 5 @ 0x50 (80) - MOV R5, UR4 ;
+Instr 6 @ 0x60 (96) - FCHK P0, R5, c[0x0][0x170] ;
+Instr 7 @ 0x70 (112) - FFMA R3, R0, -R4, 1 ;
+Instr 8 @ 0x80 (128) - FFMA R0, R0, R3, R0 ;
+Instr 9 @ 0x90 (144) - FFMA R3, R0, c[0x0][0x16c], RZ ;
+Instr 10 @ 0xa0 (160) - FFMA R2, R3, -R4, c[0x0][0x16c] ;
+Instr 11 @ 0xb0 (176) - FFMA R3, R0, R2, R3 ;
+Instr 12 @ 0xc0 (192) - FFMA R2, R3, -R4, c[0x0][0x16c] ;
+Instr 13 @ 0xd0 (208) - FFMA R2, R0, R2, R3 ;
+Instr 14 @ 0xe0 (224) - IMAD.MOV.U32 R0, RZ, RZ, c[0x0][0x160] ;
+Instr 15 @ 0xf0 (240) - @!P0 BRA 0x140 ;
+Instr 16 @ 0x100 (256) - IMAD.MOV.U32 R2, RZ, RZ, c[0x0][0x16c] ;
+Instr 17 @ 0x110 (272) - MOV R3, c[0x0][0x170] ;
+Instr 18 @ 0x120 (288) - MOV R10, 0x140 ;
+Instr 19 @ 0x130 (304) - CALL.REL.NOINC 0x1f80 ;
+Instr 20 @ 0x140 (320) - IMAD.MOV.U32 R3, RZ, RZ, c[0x0][0x168] ;
+Instr 21 @ 0x150 (336) - BSSY B0, 0x1a00 ;
+Instr 22 @ 0x160 (352) - IADD3 R6, P2, R1, c[0x0][0x20], RZ ;
+Instr 23 @ 0x170 (368) - FADD R3, R3, 1.95850000564898293088e+23 ;
+Instr 24 @ 0x180 (384) - FADD R2, R3, -R2 ;
+Instr 25 @ 0x190 (400) - FRND.FLOOR R2, R2 ;
+Instr 26 @ 0x1a0 (416) - FSETP.GTU.AND P0, PT, R2, c[0x0][0x160], PT ;
+Instr 27 @ 0x1b0 (432) - @P0 BRA 0x19f0 ;
+Instr 28 @ 0x1c0 (448) - MUFU.RCP R0, c[0x0][0x174] ;
+Instr 29 @ 0x1d0 (464) - IMAD.MOV.U32 R4, RZ, RZ, c[0x0][0x174] ;
+Instr 30 @ 0x1e0 (480) - UMOV UR4, 0x7b4effbb ;
+Instr 31 @ 0x1f0 (496) - MOV R5, UR4 ;
+Instr 32 @ 0x200 (512) - FCHK P0, R5, c[0x0][0x174] ;
+Instr 33 @ 0x210 (528) - FFMA R3, R0, -R4, 1 ;
+Instr 34 @ 0x220 (544) - FFMA R0, R0, R3, R0 ;
+Instr 35 @ 0x230 (560) - FFMA R3, R0, 1.07479998297349583487e+36, RZ ;
+Instr 36 @ 0x240 (576) - FFMA R2, R3, -R4, 1.07479998297349583487e+36 ;
+Instr 37 @ 0x250 (592) - FFMA R3, R0, R2, R3 ;
+Instr 38 @ 0x260 (608) - FFMA R2, R3, -R4, 1.07479998297349583487e+36 ;
+Instr 39 @ 0x270 (624) - FFMA R2, R0, R2, R3 ;
+Instr 40 @ 0x280 (640) - @!P0 BRA 0x2d0 ;
+Instr 41 @ 0x290 (656) - IMAD.MOV.U32 R2, RZ, RZ, 0x7b4effbb ;
+Instr 42 @ 0x2a0 (672) - MOV R10, 0x2d0 ;
+Instr 43 @ 0x2b0 (688) - IMAD.MOV.U32 R3, RZ, RZ, c[0x0][0x174] ;
+Instr 44 @ 0x2c0 (704) - CALL.REL.NOINC 0x1f80 ;
+Instr 45 @ 0x2d0 (720) - MUFU.RCP R0, c[0x0][0x17c] ;
+Instr 46 @ 0x2e0 (736) - MOV R8, c[0x0][0x17c] ;
+Instr 47 @ 0x2f0 (752) - ULDC UR4, c[0x0][0x178] ;
+Instr 48 @ 0x300 (768) - FADD R2, R2, -1.9618178500547438993e-43 ;
+Instr 49 @ 0x310 (784) - IMAD.U32 R7, RZ, RZ, UR4 ;
+Instr 50 @ 0x320 (800) - FADD R2, R2, -1.65889994032232276638e+34 ;
+Instr 51 @ 0x330 (816) - FCHK P0, R7, c[0x0][0x17c] ;
+Instr 52 @ 0x340 (832) - FFMA R3, R0, -R8, 1 ;
+Instr 53 @ 0x350 (848) - FFMA R0, R0, R3, R0 ;
+Instr 54 @ 0x360 (864) - FFMA R3, R0, c[0x0][0x178], RZ ;
+Instr 55 @ 0x370 (880) - FFMA R4, R3, -R8, c[0x0][0x178] ;
+Instr 56 @ 0x380 (896) - FFMA R3, R0, R4, R3 ;
+Instr 57 @ 0x390 (912) - FADD R4, R2, c[0x0][0x160] ;
+Instr 58 @ 0x3a0 (928) - FFMA R5, R3, -R8, c[0x0][0x178] ;
+Instr 59 @ 0x3b0 (944) - FFMA R3, R0, R5, R3 ;
+Instr 60 @ 0x3c0 (960) - @!P0 BRA 0x420 ;
+Instr 61 @ 0x3d0 (976) - IMAD.MOV.U32 R2, RZ, RZ, c[0x0][0x178] ;
+Instr 62 @ 0x3e0 (992) - MOV R3, c[0x0][0x17c] ;
+Instr 63 @ 0x3f0 (1008) - MOV R10, 0x410 ;
+Instr 64 @ 0x400 (1024) - CALL.REL.NOINC 0x1f80 ;
+Instr 65 @ 0x410 (1040) - IMAD.MOV.U32 R3, RZ, RZ, R2 ;
+Instr 66 @ 0x420 (1056) - IMAD.MOV.U32 R7, RZ, RZ, c[0x0][0x164] ;
+Instr 67 @ 0x430 (1072) - FADD R0, R4, R3 ;
+Instr 68 @ 0x440 (1088) - ISETP.GE.AND P0, PT, R7, 0x1, PT ;
+Instr 69 @ 0x450 (1104) - @!P0 BRA 0x1100 ;
+Instr 70 @ 0x460 (1120) - MOV R0, c[0x0][0x194] ;
+Instr 71 @ 0x470 (1136) - FADD R0, R0, -c[0x0][0x198] ;
+Instr 72 @ 0x480 (1152) - FADD R0, R0, 1.93170001823461069028e+36 ;
+Instr 73 @ 0x490 (1168) - FMUL R9, R0, c[0x0][0x190] ;
+Instr 74 @ 0x4a0 (1184) - FMUL R3, R9.reuse, 0.63661974668502807617 ;
+Instr 75 @ 0x4b0 (1200) - FSETP.GT.AND P0, PT, |R9|.reuse, 105615, PT ;
+Instr 76 @ 0x4c0 (1216) - SHF.R.U32.HI R2, RZ, 0x17, R9 ;
+Instr 77 @ 0x4d0 (1232) - LOP3.LUT R11, R9, 0x80000000, RZ, 0xc0, !PT ;
+Instr 78 @ 0x4e0 (1248) - F2I.NTZ R3, R3 ;
+Instr 79 @ 0x4f0 (1264) - LOP3.LUT R2, R2, 0xff, RZ, 0xc0, !PT ;
+Instr 80 @ 0x500 (1280) - IADD3 R2, R2, -0x80, RZ ;
+Instr 81 @ 0x510 (1296) - LOP3.LUT R10, R2, 0x1f, RZ, 0xc0, !PT ;
+Instr 82 @ 0x520 (1312) - I2FP.F32.S32 R0, R3 ;
+Instr 83 @ 0x530 (1328) - FFMA R5, R0, -1.5707962512969970703, R9 ;
+Instr 84 @ 0x540 (1344) - FFMA R5, R0, -7.5497894158615963534e-08, R5 ;
+Instr 85 @ 0x550 (1360) - FFMA R5, R0, -5.3903029534742383927e-15, R5 ;
+Instr 86 @ 0x560 (1376) - @P0 BRA 0xa60 ;
+Instr 87 @ 0x570 (1392) - IADD3 R0, R7.reuse, -0x1, RZ ;
+Instr 88 @ 0x580 (1408) - LOP3.LUT R4, R7, 0x3, RZ, 0xc0, !PT ;
+Instr 89 @ 0x590 (1424) - ISETP.GE.U32.AND P0, PT, R0, 0x3, PT ;
+Instr 90 @ 0x5a0 (1440) - @!P0 BRA 0x8f0 ;
+Instr 91 @ 0x5b0 (1456) - IADD3 R11, -R4, c[0x0][0x164], RZ ;
+Instr 92 @ 0x5c0 (1472) - IMAD.MOV.U32 R8, RZ, RZ, 0x3c0885e4 ;
+Instr 93 @ 0x5d0 (1488) - LOP3.LUT P1, RZ, R3, 0x1, RZ, 0xc0, !PT ;
+Instr 94 @ 0x5e0 (1504) - IMAD.MOV.U32 R10, RZ, RZ, 0x3e2aaaa8 ;
+Instr 95 @ 0x5f0 (1520) - ISETP.GT.AND P0, PT, R11, RZ, PT ;
+Instr 96 @ 0x600 (1536) - FMUL R7, R5.reuse, R5 ;
+Instr 97 @ 0x610 (1552) - FSEL R2, R5, 1, !P1 ;
+Instr 98 @ 0x620 (1568) - LOP3.LUT P3, RZ, R3, 0x2, RZ, 0xc0, !PT ;
+Instr 99 @ 0x630 (1584) - FSEL R8, R8, 0.041666727513074874878, !P1 ;
+Instr 100 @ 0x640 (1600) - FFMA R9, R2, R7, RZ ;
+Instr 101 @ 0x650 (1616) - FSEL R10, -R10, -0.4999999701976776123, !P1 ;
+Instr 102 @ 0x660 (1632) - @!P0 BRA 0x840 ;
+Instr 103 @ 0x670 (1648) - ISETP.GT.AND P4, PT, R11, 0xc, PT ;
+Instr 104 @ 0x680 (1664) - PLOP3.LUT P0, PT, PT, PT, PT, 0x80, 0x0 ;
+Instr 105 @ 0x690 (1680) - @!P4 BRA 0x760 ;
+Instr 106 @ 0x6a0 (1696) - @P1 MOV R12, 0x37cbac00 ;
+Instr 107 @ 0x6b0 (1712) - PLOP3.LUT P0, PT, PT, PT, PT, 0x8, 0x0 ;
+Instr 108 @ 0x6c0 (1728) - @P1 FFMA R12, R7, R12, -0.0013887860113754868507 ;
+Instr 109 @ 0x6d0 (1744) - IADD3 R11, R11, -0x10, RZ ;
+Instr 110 @ 0x6e0 (1760) - IMAD.MOV.U32 R0, RZ, RZ, -0x46b2bead ;
+Instr 111 @ 0x6f0 (1776) - @P1 IMAD.MOV.U32 R0, RZ, RZ, R12 ;
+Instr 112 @ 0x700 (1792) - ISETP.GT.AND P4, PT, R11, 0xc, PT ;
+Instr 113 @ 0x710 (1808) - FFMA R13, R7, R0, R8 ;
+Instr 114 @ 0x720 (1824) - FFMA R13, R7, R13, R10 ;
+Instr 115 @ 0x730 (1840) - FFMA R0, R9, R13, R2 ;
+Instr 116 @ 0x740 (1856) - @P3 FFMA R0, R0, -1, RZ ;
+Instr 117 @ 0x750 (1872) - @P4 BRA 0x6d0 ;
+Instr 118 @ 0x760 (1888) - ISETP.GT.AND P4, PT, R11, 0x4, PT ;
+Instr 119 @ 0x770 (1904) - @!P4 BRA 0x820 ;
+Instr 120 @ 0x780 (1920) - @P1 IMAD.MOV.U32 R0, RZ, RZ, 0x37cbac00 ;
+Instr 121 @ 0x790 (1936) - MOV R13, 0xb94d4153 ;
+Instr 122 @ 0x7a0 (1952) - IADD3 R11, R11, -0x4, RZ ;
+Instr 123 @ 0x7b0 (1968) - @P1 FFMA R13, R7, R0, -0.0013887860113754868507 ;
+Instr 124 @ 0x7c0 (1984) - PLOP3.LUT P0, PT, PT, PT, PT, 0x8, 0x0 ;
+Instr 125 @ 0x7d0 (2000) - IADD3 R11, R11, -0x4, RZ ;
+Instr 126 @ 0x7e0 (2016) - FFMA R13, R7, R13, R8 ;
+Instr 127 @ 0x7f0 (2032) - FFMA R13, R7, R13, R10 ;
+Instr 128 @ 0x800 (2048) - FFMA R0, R9, R13, R2 ;
+Instr 129 @ 0x810 (2064) - @P3 FFMA R0, R0, -1, RZ ;
+Instr 130 @ 0x820 (2080) - ISETP.NE.OR P0, PT, R11, RZ, P0 ;
+Instr 131 @ 0x830 (2096) - @!P0 BRA 0x8f0 ;
+Instr 132 @ 0x840 (2112) - @P1 IMAD.MOV.U32 R0, RZ, RZ, 0x37cbac00 ;
+Instr 133 @ 0x850 (2128) - @P1 FFMA R12, R7, R0, -0.0013887860113754868507 ;
+Instr 134 @ 0x860 (2144) - IADD3 R11, R11, -0x4, RZ ;
+Instr 135 @ 0x870 (2160) - MOV R13, 0xb94d4153 ;
+Instr 136 @ 0x880 (2176) - @P1 IMAD.MOV.U32 R13, RZ, RZ, R12 ;
+Instr 137 @ 0x890 (2192) - ISETP.NE.AND P0, PT, R11, RZ, PT ;
+Instr 138 @ 0x8a0 (2208) - FFMA R13, R7, R13, R8 ;
+Instr 139 @ 0x8b0 (2224) - FFMA R13, R7, R13, R10 ;
+Instr 140 @ 0x8c0 (2240) - FFMA R0, R9, R13, R2 ;
+Instr 141 @ 0x8d0 (2256) - @P3 FFMA R0, R0, -1, RZ ;
+Instr 142 @ 0x8e0 (2272) - @P0 BRA 0x860 ;
+Instr 143 @ 0x8f0 (2288) - ISETP.NE.AND P0, PT, R4, RZ, PT ;
+Instr 144 @ 0x900 (2304) - @!P0 BRA 0xf60 ;
+Instr 145 @ 0x910 (2320) - LOP3.LUT P1, RZ, R3.reuse, 0x1, RZ, 0xc0, !PT ;
+Instr 146 @ 0x920 (2336) - IMAD.MOV.U32 R0, RZ, RZ, 0x3c0885e4 ;
+Instr 147 @ 0x930 (2352) - LOP3.LUT P3, RZ, R3, 0x2, RZ, 0xc0, !PT ;
+Instr 148 @ 0x940 (2368) - FMUL R7, R5.reuse, R5 ;
+Instr 149 @ 0x950 (2384) - FSEL R2, R5, 1, !P1 ;
+Instr 150 @ 0x960 (2400) - MOV R3, 0x3e2aaaa8 ;
+Instr 151 @ 0x970 (2416) - FSEL R8, R0, 0.041666727513074874878, !P1 ;
+Instr 152 @ 0x980 (2432) - FFMA R5, R2, R7, RZ ;
+Instr 153 @ 0x990 (2448) - FSEL R9, -R3, -0.4999999701976776123, !P1 ;
+Instr 154 @ 0x9a0 (2464) - @P1 IMAD.MOV.U32 R10, RZ, RZ, 0x37cbac00 ;
+Instr 155 @ 0x9b0 (2480) - @P1 FFMA R10, R7, R10, -0.0013887860113754868507 ;
+Instr 156 @ 0x9c0 (2496) - IADD3 R4, R4, -0x1, RZ ;
+Instr 157 @ 0x9d0 (2512) - IMAD.MOV.U32 R0, RZ, RZ, -0x46b2bead ;
+Instr 158 @ 0x9e0 (2528) - @P1 MOV R0, R10 ;
+Instr 159 @ 0x9f0 (2544) - ISETP.NE.AND P0, PT, R4, RZ, PT ;
+Instr 160 @ 0xa00 (2560) - FFMA R0, R7, R0, R8 ;
+Instr 161 @ 0xa10 (2576) - FFMA R3, R7, R0, R9 ;
+Instr 162 @ 0xa20 (2592) - FFMA R0, R5, R3, R2 ;
+Instr 163 @ 0xa30 (2608) - @P3 FFMA R0, R0, -1, RZ ;
+Instr 164 @ 0xa40 (2624) - @!P0 BRA 0xf60 ;
+Instr 165 @ 0xa50 (2640) - BRA 0x9c0 ;
+Instr 166 @ 0xa60 (2656) - SHF.R.U32.HI R2, RZ, 0x5, R2 ;
+Instr 167 @ 0xa70 (2672) - IMAD.MOV.U32 R17, RZ, RZ, RZ ;
+Instr 168 @ 0xa80 (2688) - SHF.L.U32 R15, R9, 0x8, RZ ;
+Instr 169 @ 0xa90 (2704) - ULDC.64 UR4, c[0x0][0x118] ;
+Instr 170 @ 0xaa0 (2720) - IADD3 R12, -R2.reuse, 0x6, RZ ;
+Instr 171 @ 0xab0 (2736) - IADD3 R2, -R2, 0x4, RZ ;
+Instr 172 @ 0xac0 (2752) - ISETP.NE.AND P0, PT, R11, RZ, PT ;
+Instr 173 @ 0xad0 (2768) - IMAD R12, R12, 0x4, R1.reuse ;
+Instr 174 @ 0xae0 (2784) - IADD3 R14, -R10, 0x20, RZ ;
+Instr 175 @ 0xaf0 (2800) - IMAD R13, R2, 0x4, R1 ;
+Instr 176 @ 0xb00 (2816) - LOP3.LUT R16, R9, 0x80000000, RZ, 0xc, !PT ;
+Instr 177 @ 0xb10 (2832) - LOP3.LUT R15, R15, 0x80000000, RZ, 0xfc, !PT ;
+Instr 178 @ 0xb20 (2848) - FSETP.NEU.AND P3, PT, |R9|, +INF , PT ;
+Instr 179 @ 0xb30 (2864) - IADD3 R17, R17, 0x1, RZ ;
+Instr 180 @ 0xb40 (2880) - ISETP.GE.AND P1, PT, R17, c[0x0][0x164], PT ;
+Instr 181 @ 0xb50 (2896) - @!P3 BRA 0xe30 ;
+Instr 182 @ 0xb60 (2912) - IMAD.MOV.U32 R7, RZ, RZ, RZ ;
+Instr 183 @ 0xb70 (2928) - MOV R0, R1 ;
+Instr 184 @ 0xb80 (2944) - IMAD.MOV.U32 R8, RZ, RZ, RZ ;
+Instr 185 @ 0xb90 (2960) - UMOV UR6, 0xb4200300 ;
+Instr 186 @ 0xba0 (2976) - IMAD.MOV.U32 R21, RZ, RZ, RZ ;
+Instr 187 @ 0xbb0 (2992) - UMOV UR7, 0x7f68 ;
+Instr 188 @ 0xbc0 (3008) - MOV R4, UR6 ;
+Instr 189 @ 0xbd0 (3024) - IMAD.U32 R5, RZ, RZ, UR7 ;
+Instr 190 @ 0xbe0 (3040) - LDG.E.CONSTANT R2, [R4.64] ;
+Instr 191 @ 0xbf0 (3056) - IADD3 R7, R7, 0x1, RZ ;
+Instr 192 @ 0xc00 (3072) - UIADD3 UR6, UP0, UR6, 0x4, URZ ;
+Instr 193 @ 0xc10 (3088) - ISETP.NE.AND P3, PT, R7, 0x6, PT ;
+Instr 194 @ 0xc20 (3104) - UIADD3.X UR7, URZ, UR7, URZ, UP0, !UPT ;
+Instr 195 @ 0xc30 (3120) - IMAD.WIDE.U32 R2, R2, R15, RZ ;
+Instr 196 @ 0xc40 (3136) - IADD3 R19, P4, R2, R8, RZ ;
+Instr 197 @ 0xc50 (3152) - STL [R0], R19 ;
+Instr 198 @ 0xc60 (3168) - IMAD.X R8, R3, 0x1, R21, P4 ;
+Instr 199 @ 0xc70 (3184) - IADD3 R0, R0, 0x4, RZ ;
+Instr 200 @ 0xc80 (3200) - @P3 BRA 0xbc0 ;
+Instr 201 @ 0xc90 (3216) - ISETP.NE.AND P3, PT, R10, RZ, PT ;
+Instr 202 @ 0xca0 (3232) - STL [R1+0x18], R8 ;
+Instr 203 @ 0xcb0 (3248) - LDL R3, [R12+-0x4] ;
+Instr 204 @ 0xcc0 (3264) - LDL R0, [R12] ;
+Instr 205 @ 0xcd0 (3280) - @P3 LDL R4, [R13] ;
+Instr 206 @ 0xce0 (3296) - @P3 SHF.L.U32 R7, R3, R10, RZ ;
+Instr 207 @ 0xcf0 (3312) - @P3 SHF.R.U32.HI R5, RZ, R14, R3 ;
+Instr 208 @ 0xd00 (3328) - @P3 SHF.L.U32 R2, R0, R10, RZ ;
+Instr 209 @ 0xd10 (3344) - @P3 SHF.R.U32.HI R4, RZ, R14, R4 ;
+Instr 210 @ 0xd20 (3360) - @P3 IADD3 R0, R2, R5, RZ ;
+Instr 211 @ 0xd30 (3376) - @P3 IMAD.IADD R3, R4, 0x1, R7 ;
+Instr 212 @ 0xd40 (3392) - SHF.L.U32.HI R5, R3, 0x2, R0 ;
+Instr 213 @ 0xd50 (3408) - SHF.R.U32.HI R7, RZ, 0x1f, R5 ;
+Instr 214 @ 0xd60 (3424) - ISETP.NE.AND P3, PT, R7, RZ, PT ;
+Instr 215 @ 0xd70 (3440) - IMAD.SHL.U32 R4, R3, 0x4, RZ ;
+Instr 216 @ 0xd80 (3456) - @P3 LOP3.LUT R5, RZ, R5, RZ, 0x33, !PT ;
+Instr 217 @ 0xd90 (3472) - @P3 LOP3.LUT R4, RZ, R4, RZ, 0x33, !PT ;
+Instr 218 @ 0xda0 (3488) - I2F.F64.S64 R2, R4 ;
+Instr 219 @ 0xdb0 (3504) - DMUL R2, R2, c[0x2][0x0] ;
+Instr 220 @ 0xdc0 (3520) - SEL R8, R16, R11, P3 ;
+Instr 221 @ 0xdd0 (3536) - F2F.F32.F64 R2, R2 ;
+Instr 222 @ 0xde0 (3552) - ISETP.NE.AND P3, PT, R8, RZ, PT ;
+Instr 223 @ 0xdf0 (3568) - LEA.HI R7, R0, R7, RZ, 0x2 ;
+Instr 224 @ 0xe00 (3584) - @P0 IADD3 R7, -R7, RZ, RZ ;
+Instr 225 @ 0xe10 (3600) - FSEL R0, R2, -R2, !P3 ;
+Instr 226 @ 0xe20 (3616) - BRA 0xe50 ;
+Instr 227 @ 0xe30 (3632) - FMUL R0, RZ, R9 ;
+Instr 228 @ 0xe40 (3648) - IMAD.MOV.U32 R7, RZ, RZ, RZ ;
+Instr 229 @ 0xe50 (3664) - @!P1 BRA 0xb20 ;
+Instr 230 @ 0xe60 (3680) - LOP3.LUT P1, RZ, R7.reuse, 0x1, RZ, 0xc0, !PT ;
+Instr 231 @ 0xe70 (3696) - FMUL R4, R0, R0 ;
+Instr 232 @ 0xe80 (3712) - MOV R3, 0x3c0885e4 ;
+Instr 233 @ 0xe90 (3728) - IMAD.MOV.U32 R8, RZ, RZ, 0x3e2aaaa8 ;
+Instr 234 @ 0xea0 (3744) - LOP3.LUT P0, RZ, R7, 0x2, RZ, 0xc0, !PT ;
+Instr 235 @ 0xeb0 (3760) - IMAD.MOV.U32 R2, RZ, RZ, -0x46b2bead ;
+Instr 236 @ 0xec0 (3776) - FSEL R3, R3, 0.041666727513074874878, !P1 ;
+Instr 237 @ 0xed0 (3792) - FSEL R0, R0, 1, !P1 ;
+Instr 238 @ 0xee0 (3808) - @P1 IMAD.MOV.U32 R5, RZ, RZ, 0x37cbac00 ;
+Instr 239 @ 0xef0 (3824) - @P1 FFMA R2, R4, R5, -0.0013887860113754868507 ;
+Instr 240 @ 0xf00 (3840) - FSEL R5, -R8, -0.4999999701976776123, !P1 ;
+Instr 241 @ 0xf10 (3856) - FFMA R2, R4, R2, R3 ;
+Instr 242 @ 0xf20 (3872) - FFMA R3, R0, R4, RZ ;
+Instr 243 @ 0xf30 (3888) - FFMA R5, R4, R2, R5 ;
+Instr 244 @ 0xf40 (3904) - FFMA R0, R5, R3, R0 ;
+Instr 245 @ 0xf50 (3920) - @P0 FFMA R0, R0, -1, RZ ;
+Instr 246 @ 0xf60 (3936) - FADD R0, -R0, c[0x0][0x18c] ;
+Instr 247 @ 0xf70 (3952) - IMAD.MOV.U32 R5, RZ, RZ, 0x4a000000 ;
+Instr 248 @ 0xf80 (3968) - FRND.FLOOR R0, R0 ;
+Instr 249 @ 0xf90 (3984) - FMUL R2, |R0|, 1.4426950216293334961 ;
+Instr 250 @ 0xfa0 (4000) - FRND.TRUNC R3, R2 ;
+Instr 251 @ 0xfb0 (4016) - FSETP.GT.AND P0, PT, |R3|.reuse, 126, PT ;
+Instr 252 @ 0xfc0 (4032) - LOP3.LUT R4, R3, 0x80000000, RZ, 0xc0, !PT ;
+Instr 253 @ 0xfd0 (4048) - @P0 LOP3.LUT R3, R4, 0x42fc0000, RZ, 0xfc, !PT ;
+Instr 254 @ 0xfe0 (4064) - FFMA R4, R3, -0.69314718246459960938, |R0| ;
+Instr 255 @ 0xff0 (4080) - FFMA R4, R3.reuse, 1.9046542121259335545e-09, R4 ;
+Instr 256 @ 0x1000 (4096) - FADD R3, R3, 12583037 ;
+Instr 257 @ 0x1010 (4112) - FMUL R4, R4, 1.4426950216293334961 ;
+Instr 258 @ 0x1020 (4128) - SHF.L.U32 R3, R3, 0x17, RZ ;
+Instr 259 @ 0x1030 (4144) - MUFU.EX2 R4, R4 ;
+Instr 260 @ 0x1040 (4160) - FMUL R3, R3, R4 ;
+Instr 261 @ 0x1050 (4176) - FMUL R2, R3.reuse, 16777216 ;
+Instr 262 @ 0x1060 (4192) - FSETP.GEU.AND P0, PT, |R3|, 1.175494350822287508e-38, PT ;
+Instr 263 @ 0x1070 (4208) - FSEL R2, R2, R3, !P0 ;
+Instr 264 @ 0x1080 (4224) - FSEL R5, R5, 0.125, !P0 ;
+Instr 265 @ 0x1090 (4240) - FSETP.GE.AND P0, PT, |R0|, 90, PT ;
+Instr 266 @ 0x10a0 (4256) - MUFU.RCP R2, R2 ;
+Instr 267 @ 0x10b0 (4272) - FMUL R8, R2, R5 ;
+Instr 268 @ 0x10c0 (4288) - FFMA R8, R3, 2, R8 ;
+Instr 269 @ 0x10d0 (4304) - FSEL R8, R8, +INF , !P0 ;
+Instr 270 @ 0x10e0 (4320) - FADD R8, R8, c[0x0][0x188] ;
+Instr 271 @ 0x10f0 (4336) - FADD R0, -R8, -1.0471999833233703518e-36 ;
+Instr 272 @ 0x1100 (4352) - IMAD.MOV.U32 R3, RZ, RZ, 0x7f800000 ;
+Instr 273 @ 0x1110 (4368) - ULDC UR4, c[0x0][0x19c] ;
+Instr 274 @ 0x1120 (4384) - MOV R5, UR4 ;
+Instr 275 @ 0x1130 (4400) - FFMA R2, RZ, -R3, 1 ;
+Instr 276 @ 0x1140 (4416) - FCHK P0, R5, -RZ ;
+Instr 277 @ 0x1150 (4432) - FFMA R2, R2, -R3, -INF  ;
+Instr 278 @ 0x1160 (4448) - FFMA R3, R2, c[0x0][0x19c], RZ ;
+Instr 279 @ 0x1170 (4464) - FFMA R4, RZ, R3, c[0x0][0x19c] ;
+Instr 280 @ 0x1180 (4480) - FFMA R3, R2, R4, R3 ;
+Instr 281 @ 0x1190 (4496) - FFMA R4, RZ, R3, c[0x0][0x19c] ;
+Instr 282 @ 0x11a0 (4512) - FFMA R3, R2, R4, R3 ;
+Instr 283 @ 0x11b0 (4528) - @!P0 BRA 0x1210 ;
+Instr 284 @ 0x11c0 (4544) - IMAD.MOV.U32 R2, RZ, RZ, c[0x0][0x19c] ;
+Instr 285 @ 0x11d0 (4560) - MOV R10, 0x1200 ;
+Instr 286 @ 0x11e0 (4576) - IMAD.MOV.U32 R3, RZ, RZ, -0x80000000 ;
+Instr 287 @ 0x11f0 (4592) - CALL.REL.NOINC 0x1f80 ;
+Instr 288 @ 0x1200 (4608) - MOV R3, R2 ;
+Instr 289 @ 0x1210 (4624) - FSETP.GE.AND P0, PT, R0, R3, PT ;
+Instr 290 @ 0x1220 (4640) - @!P0 BRA 0x19f0 ;
+Instr 291 @ 0x1230 (4656) - MUFU.RCP R2, c[0x0][0x1a8] ;
+Instr 292 @ 0x1240 (4672) - IMAD.MOV.U32 R8, RZ, RZ, c[0x0][0x1a8] ;
+Instr 293 @ 0x1250 (4688) - ULDC UR4, c[0x0][0x1a4] ;
+Instr 294 @ 0x1260 (4704) - IMAD.U32 R5, RZ, RZ, UR4 ;
+Instr 295 @ 0x1270 (4720) - FCHK P0, R5, c[0x0][0x1a8] ;
+Instr 296 @ 0x1280 (4736) - FFMA R3, R2, -R8, 1 ;
+Instr 297 @ 0x1290 (4752) - FFMA R2, R2, R3, R2 ;
+Instr 298 @ 0x12a0 (4768) - FFMA R3, R2, c[0x0][0x1a4], RZ ;
+Instr 299 @ 0x12b0 (4784) - FFMA R4, R3, -R8, c[0x0][0x1a4] ;
+Instr 300 @ 0x12c0 (4800) - FFMA R3, R2, R4, R3 ;
+Instr 301 @ 0x12d0 (4816) - FFMA R4, R3, -R8, c[0x0][0x1a4] ;
+Instr 302 @ 0x12e0 (4832) - FFMA R2, R2, R4, R3 ;
+Instr 303 @ 0x12f0 (4848) - @!P0 BRA 0x1340 ;
+Instr 304 @ 0x1300 (4864) - MOV R2, c[0x0][0x1a4] ;
+Instr 305 @ 0x1310 (4880) - IMAD.MOV.U32 R3, RZ, RZ, c[0x0][0x1a8] ;
+Instr 306 @ 0x1320 (4896) - MOV R10, 0x1340 ;
+Instr 307 @ 0x1330 (4912) - CALL.REL.NOINC 0x1f80 ;
+Instr 308 @ 0x1340 (4928) - FADD R3, R2, -1.0407443694540416386e-41 ;
+Instr 309 @ 0x1350 (4944) - BSSY B1, 0x1430 ;
+Instr 310 @ 0x1360 (4960) - MUFU.RSQ R4, R3 ;
+Instr 311 @ 0x1370 (4976) - IADD3 R2, R3, -0xd000000, RZ ;
+Instr 312 @ 0x1380 (4992) - ISETP.GT.U32.AND P0, PT, R2, 0x727fffff, PT ;
+Instr 313 @ 0x1390 (5008) - @!P0 BRA 0x13e0 ;
+Instr 314 @ 0x13a0 (5024) - MOV R10, 0x13c0 ;
+Instr 315 @ 0x13b0 (5040) - CALL.REL.NOINC 0x1e10 ;
+Instr 316 @ 0x13c0 (5056) - IMAD.MOV.U32 R2, RZ, RZ, R4 ;
+Instr 317 @ 0x13d0 (5072) - BRA 0x1420 ;
+Instr 318 @ 0x13e0 (5088) - FMUL.FTZ R2, R3, R4 ;
+Instr 319 @ 0x13f0 (5104) - FMUL.FTZ R4, R4, 0.5 ;
+Instr 320 @ 0x1400 (5120) - FFMA R3, -R2, R2, R3 ;
+Instr 321 @ 0x1410 (5136) - FFMA R2, R3, R4, R2 ;
+Instr 322 @ 0x1420 (5152) - BSYNC B1 ;
+Instr 323 @ 0x1430 (5168) - MOV R3, c[0x0][0x1b4] ;
+Instr 324 @ 0x1440 (5184) - FADD R2, -R2, -1.7189000483502099272e-35 ;
+Instr 325 @ 0x1450 (5200) - IMAD.MOV.U32 R8, RZ, RZ, c[0x0][0x1b0] ;
+Instr 326 @ 0x1460 (5216) - BSSY B1, 0x18c0 ;
+Instr 327 @ 0x1470 (5232) - FADD R3, R3, -c[0x0][0x1b8] ;
+Instr 328 @ 0x1480 (5248) - FADD R5, R2, 1.1689999750192993522e-22 ;
+Instr 329 @ 0x1490 (5264) - FADD R3, R3, -c[0x0][0x1bc] ;
+Instr 330 @ 0x14a0 (5280) - FSETP.NEU.AND P0, PT, |R5|, RZ, PT ;
+Instr 331 @ 0x14b0 (5296) - FFMA R8, -R3, R8, c[0x0][0x1ac] ;
+Instr 332 @ 0x14c0 (5312) - LOP3.LUT R4, R5, 0x80000000, RZ, 0xc0, !PT ;
+Instr 333 @ 0x14d0 (5328) - FSETP.EQ.AND P1, PT, |R8|, RZ, PT ;
+Instr 334 @ 0x14e0 (5344) - @!P0 BRA P1, 0x1890 ;
+Instr 335 @ 0x14f0 (5360) - FSETP.NEU.AND P0, PT, |R5|, +INF , PT ;
+Instr 336 @ 0x1500 (5376) - FSETP.EQ.AND P1, PT, |R8|, +INF , PT ;
+Instr 337 @ 0x1510 (5392) - @!P0 BRA P1, 0x1840 ;
+Instr 338 @ 0x1520 (5408) - FMNMX R9, |R5|.reuse, |R8|.reuse, !PT ;
+Instr 339 @ 0x1530 (5424) - BSSY B2, 0x1650 ;
+Instr 340 @ 0x1540 (5440) - FMNMX R2, |R5|, |R8|, PT ;
+Instr 341 @ 0x1550 (5456) - MUFU.RCP R3, R9 ;
+Instr 342 @ 0x1560 (5472) - ISETP.GE.AND P3, PT, R8, RZ, PT ;
+Instr 343 @ 0x1570 (5488) - FCHK P0, R2, R9 ;
+Instr 344 @ 0x1580 (5504) - FFMA R10, -R9, R3, 1 ;
+Instr 345 @ 0x1590 (5520) - FFMA R3, R3, R10, R3 ;
+Instr 346 @ 0x15a0 (5536) - FFMA R10, R2, R3, RZ ;
+Instr 347 @ 0x15b0 (5552) - FFMA R7, -R9, R10, R2 ;
+Instr 348 @ 0x15c0 (5568) - FFMA R7, R3, R7, R10 ;
+Instr 349 @ 0x15d0 (5584) - FFMA R10, -R9, R7, R2 ;
+Instr 350 @ 0x15e0 (5600) - FFMA R7, R3, R10, R7 ;
+Instr 351 @ 0x15f0 (5616) - @!P0 BRA 0x1640 ;
+Instr 352 @ 0x1600 (5632) - IMAD.MOV.U32 R3, RZ, RZ, R9 ;
+Instr 353 @ 0x1610 (5648) - MOV R10, 0x1630 ;
+Instr 354 @ 0x1620 (5664) - CALL.REL.NOINC 0x1f80 ;
+Instr 355 @ 0x1630 (5680) - MOV R7, R2 ;
+Instr 356 @ 0x1640 (5696) - BSYNC B2 ;
+Instr 357 @ 0x1650 (5712) - FMUL R2, R7, R7 ;
+Instr 358 @ 0x1660 (5728) - BSSY B2, 0x17c0 ;
+Instr 359 @ 0x1670 (5744) - FADD R3, R2, 11.33538818359375 ;
+Instr 360 @ 0x1680 (5760) - FFMA R3, R2, R3, 28.84246826171875 ;
+Instr 361 @ 0x1690 (5776) - FFMA R11, R2, R3, 19.6966705322265625 ;
+Instr 362 @ 0x16a0 (5792) - IMAD.MOV.U32 R3, RZ, RZ, 0x3f52c7ea ;
+Instr 363 @ 0x16b0 (5808) - IADD3 R9, R11, 0x1800000, RZ ;
+Instr 364 @ 0x16c0 (5824) - FFMA R3, R2, -R3, -5.6748671531677246094 ;
+Instr 365 @ 0x16d0 (5840) - LOP3.LUT R9, R9, 0x7f800000, RZ, 0xc0, !PT ;
+Instr 366 @ 0x16e0 (5856) - FFMA R3, R2, R3, -6.5655550956726074219 ;
+Instr 367 @ 0x16f0 (5872) - ISETP.GT.U32.AND P0, PT, R9, 0x1ffffff, PT ;
+Instr 368 @ 0x1700 (5888) - FMUL R10, R2, R3 ;
+Instr 369 @ 0x1710 (5904) - FMUL R10, R10, R7 ;
+Instr 370 @ 0x1720 (5920) - @P0 BRA 0x1770 ;
+Instr 371 @ 0x1730 (5936) - MOV R12, 0x1750 ;
+Instr 372 @ 0x1740 (5952) - CALL.REL.NOINC 0x1ac0 ;
+Instr 373 @ 0x1750 (5968) - IMAD.MOV.U32 R2, RZ, RZ, R9 ;
+Instr 374 @ 0x1760 (5984) - BRA 0x17b0 ;
+Instr 375 @ 0x1770 (6000) - MUFU.RCP R2, R11 ;
+Instr 376 @ 0x1780 (6016) - FFMA R3, R11, R2, -1 ;
+Instr 377 @ 0x1790 (6032) - FADD.FTZ R3, -R3, -RZ ;
+Instr 378 @ 0x17a0 (6048) - FFMA R2, R2, R3, R2 ;
+Instr 379 @ 0x17b0 (6064) - BSYNC B2 ;
+Instr 380 @ 0x17c0 (6080) - FSETP.GT.AND P0, PT, |R5|.reuse, |R8|, PT ;
+Instr 381 @ 0x17d0 (6096) - FADD R3, |R5|, |R8| ;
+Instr 382 @ 0x17e0 (6112) - FFMA R7, R10, R2, R7 ;
+Instr 383 @ 0x17f0 (6128) - FSETP.GTU.AND P1, PT, R3, +INF , PT ;
+Instr 384 @ 0x1800 (6144) - @P0 FADD R7, -R7, 1.5707963705062866211 ;
+Instr 385 @ 0x1810 (6160) - @!P3 FADD R7, -R7, 3.1415927410125732422 ;
+Instr 386 @ 0x1820 (6176) - @!P1 LOP3.LUT R3, R4, R7, RZ, 0xfc, !PT ;
+Instr 387 @ 0x1830 (6192) - BRA 0x18b0 ;
+Instr 388 @ 0x1840 (6208) - ISETP.GE.AND P0, PT, R8, RZ, PT ;
+Instr 389 @ 0x1850 (6224) - MOV R3, 0x4016cbe4 ;
+Instr 390 @ 0x1860 (6240) - SEL R3, R3, 0x3f490fdb, !P0 ;
+Instr 391 @ 0x1870 (6256) - LOP3.LUT R3, R4, R3, RZ, 0xfc, !PT ;
+Instr 392 @ 0x1880 (6272) - BRA 0x18b0 ;
+Instr 393 @ 0x1890 (6288) - SHF.R.S32.HI R3, RZ, 0x1f, R8 ;
+Instr 394 @ 0x18a0 (6304) - LOP3.LUT R3, R4, 0x40490fdb, R3, 0xf8, !PT ;
+Instr 395 @ 0x18b0 (6320) - BSYNC B1 ;
+Instr 396 @ 0x18c0 (6336) - MUFU.RCP R2, R3 ;
+Instr 397 @ 0x18d0 (6352) - ULDC UR4, c[0x0][0x1a0] ;
+Instr 398 @ 0x18e0 (6368) - BSSY B1, 0x19e0 ;
+Instr 399 @ 0x18f0 (6384) - IMAD.U32 R8, RZ, RZ, UR4 ;
+Instr 400 @ 0x1900 (6400) - FCHK P0, R8, R3 ;
+Instr 401 @ 0x1910 (6416) - FFMA R5, R2, -R3, 1 ;
+Instr 402 @ 0x1920 (6432) - FFMA R2, R2, R5, R2 ;
+Instr 403 @ 0x1930 (6448) - FFMA R5, R2, c[0x0][0x1a0], RZ ;
+Instr 404 @ 0x1940 (6464) - FFMA R4, R5, -R3, c[0x0][0x1a0] ;
+Instr 405 @ 0x1950 (6480) - FFMA R4, R2, R4, R5 ;
+Instr 406 @ 0x1960 (6496) - FFMA R5, R4, -R3, c[0x0][0x1a0] ;
+Instr 407 @ 0x1970 (6512) - FFMA R5, R2, R5, R4 ;
+Instr 408 @ 0x1980 (6528) - @!P0 BRA 0x19d0 ;
+Instr 409 @ 0x1990 (6544) - IMAD.MOV.U32 R2, RZ, RZ, c[0x0][0x1a0] ;
+Instr 410 @ 0x19a0 (6560) - MOV R10, 0x19c0 ;
+Instr 411 @ 0x19b0 (6576) - CALL.REL.NOINC 0x1f80 ;
+Instr 412 @ 0x19c0 (6592) - MOV R5, R2 ;
+Instr 413 @ 0x19d0 (6608) - BSYNC B1 ;
+Instr 414 @ 0x19e0 (6624) - FADD R0, R0, R5 ;
+Instr 415 @ 0x19f0 (6640) - BSYNC B0 ;
+Instr 416 @ 0x1a00 (6656) - F2F.F64.F32 R2, R0 ;
+Instr 417 @ 0x1a10 (6672) - IADD3 R6, P0, R6, 0x20, RZ ;
+Instr 418 @ 0x1a20 (6688) - UMOV UR4, 0xb4200200 ;
+Instr 419 @ 0x1a30 (6704) - MOV R20, 0xd4fb31b0 ;
+Instr 420 @ 0x1a40 (6720) - UMOV UR5, 0x7f68 ;
+Instr 421 @ 0x1a50 (6736) - IADD3.X R7, RZ, c[0x0][0x24], RZ, P0, P2 ;
+Instr 422 @ 0x1a60 (6752) - IMAD.U32 R4, RZ, RZ, UR4 ;
+Instr 423 @ 0x1a70 (6768) - MOV R21, 0x7f68 ;
+Instr 424 @ 0x1a80 (6784) - IMAD.U32 R5, RZ, RZ, UR5 ;
+Instr 425 @ 0x1a90 (6800) - STL.64 [R1+0x20], R2 ;
+Instr 426 @ 0x1aa0 (6816) - CALL.ABS.NOINC 0x7f68d4f23100 ;
+Instr 427 @ 0x1ab0 (6832) - EXIT ;
+Instr 428 @ 0x1ac0 (6848) - SHF.L.U32 R2, R11, 0x1, RZ ;
+Instr 429 @ 0x1ad0 (6864) - BSSY B3, 0x1df0 ;
+Instr 430 @ 0x1ae0 (6880) - SHF.R.U32.HI R13, RZ, 0x18, R2 ;
+Instr 431 @ 0x1af0 (6896) - IMAD.MOV.U32 R2, RZ, RZ, R11 ;
+Instr 432 @ 0x1b00 (6912) - ISETP.NE.U32.AND P0, PT, R13, RZ, PT ;
+Instr 433 @ 0x1b10 (6928) - @P0 BRA 0x1bc0 ;
+Instr 434 @ 0x1b20 (6944) - IMAD.SHL.U32 R3, R2, 0x2, RZ ;
+Instr 435 @ 0x1b30 (6960) - ISETP.NE.AND P0, PT, R3, RZ, PT ;
+Instr 436 @ 0x1b40 (6976) - @P0 FFMA R11, R2, 1.84467440737095516160e+19, RZ ;
+Instr 437 @ 0x1b50 (6992) - @!P0 MUFU.RCP R9, R2 ;
+Instr 438 @ 0x1b60 (7008) - @P0 MUFU.RCP R14, R11 ;
+Instr 439 @ 0x1b70 (7024) - @P0 FFMA R3, R11, R14, -1 ;
+Instr 440 @ 0x1b80 (7040) - @P0 FADD.FTZ R3, -R3, -RZ ;
+Instr 441 @ 0x1b90 (7056) - @P0 FFMA R3, R14, R3, R14 ;
+Instr 442 @ 0x1ba0 (7072) - @P0 FFMA R9, R3, 1.84467440737095516160e+19, RZ ;
+Instr 443 @ 0x1bb0 (7088) - BRA 0x1de0 ;
+Instr 444 @ 0x1bc0 (7104) - IADD3 R15, R13, -0xfd, RZ ;
+Instr 445 @ 0x1bd0 (7120) - ISETP.GT.U32.AND P0, PT, R15, 0x1, PT ;
+Instr 446 @ 0x1be0 (7136) - @P0 BRA 0x1dd0 ;
+Instr 447 @ 0x1bf0 (7152) - LOP3.LUT R17, R2, 0x7fffff, RZ, 0xc0, !PT ;
+Instr 448 @ 0x1c00 (7168) - MOV R16, 0x3 ;
+Instr 449 @ 0x1c10 (7184) - LOP3.LUT R3, R17, 0x3f800000, RZ, 0xfc, !PT ;
+Instr 450 @ 0x1c20 (7200) - SHF.L.U32 R16, R16, R15, RZ ;
+Instr 451 @ 0x1c30 (7216) - MUFU.RCP R14, R3 ;
+Instr 452 @ 0x1c40 (7232) - FFMA R9, R3, R14, -1 ;
+Instr 453 @ 0x1c50 (7248) - FADD.FTZ R9, -R9, -RZ ;
+Instr 454 @ 0x1c60 (7264) - FFMA.RM R11, R14.reuse, R9.reuse, R14.reuse ;
+Instr 455 @ 0x1c70 (7280) - FFMA.RP R14, R14, R9, R14 ;
+Instr 456 @ 0x1c80 (7296) - LOP3.LUT R9, R11.reuse, 0x7fffff, RZ, 0xc0, !PT ;
+Instr 457 @ 0x1c90 (7312) - FSETP.NEU.FTZ.AND P0, PT, R11, R14, PT ;
+Instr 458 @ 0x1ca0 (7328) - LOP3.LUT R9, R9, 0x800000, RZ, 0xfc, !PT ;
+Instr 459 @ 0x1cb0 (7344) - SEL R11, RZ, 0xffffffff, !P0 ;
+Instr 460 @ 0x1cc0 (7360) - LOP3.LUT R16, R16, R9, RZ, 0xc0, !PT ;
+Instr 461 @ 0x1cd0 (7376) - IMAD.MOV R14, RZ, RZ, -R11 ;
+Instr 462 @ 0x1ce0 (7392) - SHF.R.U32.HI R16, RZ, R15, R16 ;
+Instr 463 @ 0x1cf0 (7408) - LOP3.LUT P1, RZ, R14, R15, R9, 0xf8, !PT ;
+Instr 464 @ 0x1d00 (7424) - LOP3.LUT P0, RZ, R16.reuse, 0x1, RZ, 0xc0, !PT ;
+Instr 465 @ 0x1d10 (7440) - LOP3.LUT P4, RZ, R16, 0x2, RZ, 0xc0, !PT ;
+Instr 466 @ 0x1d20 (7456) - IADD3 R14, R13, -0xfc, RZ ;
+Instr 467 @ 0x1d30 (7472) - PLOP3.LUT P0, PT, P0, P1, P4, 0xe0, 0x0 ;
+Instr 468 @ 0x1d40 (7488) - ISETP.NE.U32.AND P1, PT, R17, RZ, PT ;
+Instr 469 @ 0x1d50 (7504) - SEL R3, RZ, 0x1, !P0 ;
+Instr 470 @ 0x1d60 (7520) - SHF.R.U32.HI R9, RZ, R14, R9 ;
+Instr 471 @ 0x1d70 (7536) - IMAD.MOV R3, RZ, RZ, -R3 ;
+Instr 472 @ 0x1d80 (7552) - ISETP.GE.AND P0, PT, R3, RZ, PT ;
+Instr 473 @ 0x1d90 (7568) - @!P0 IADD3 R9, R9, 0x1, RZ ;
+Instr 474 @ 0x1da0 (7584) - @!P1 SHF.L.U32 R9, R9, 0x1, RZ ;
+Instr 475 @ 0x1db0 (7600) - LOP3.LUT R9, R9, 0x80000000, R2, 0xf8, !PT ;
+Instr 476 @ 0x1dc0 (7616) - BRA 0x1de0 ;
+Instr 477 @ 0x1dd0 (7632) - MUFU.RCP R9, R2 ;
+Instr 478 @ 0x1de0 (7648) - BSYNC B3 ;
+Instr 479 @ 0x1df0 (7664) - IMAD.MOV.U32 R13, RZ, RZ, 0x0 ;
+Instr 480 @ 0x1e00 (7680) - RET.REL.NODEC R12 0x0 ;
+Instr 481 @ 0x1e10 (7696) - LOP3.LUT P0, RZ, R3, 0x7fffffff, RZ, 0xc0, !PT ;
+Instr 482 @ 0x1e20 (7712) - @!P0 BRA 0x1f40 ;
+Instr 483 @ 0x1e30 (7728) - FSETP.GEU.FTZ.AND P0, PT, R3, RZ, PT ;
+Instr 484 @ 0x1e40 (7744) - IMAD.MOV.U32 R2, RZ, RZ, R3 ;
+Instr 485 @ 0x1e50 (7760) - @!P0 MOV R3, 0x7fffffff ;
+Instr 486 @ 0x1e60 (7776) - @!P0 BRA 0x1f40 ;
+Instr 487 @ 0x1e70 (7792) - FSETP.GTU.FTZ.AND P0, PT, |R2|, +INF , PT ;
+Instr 488 @ 0x1e80 (7808) - @P0 FADD.FTZ R3, R2, 1 ;
+Instr 489 @ 0x1e90 (7824) - @P0 BRA 0x1f40 ;
+Instr 490 @ 0x1ea0 (7840) - FSETP.NEU.FTZ.AND P0, PT, |R2|, +INF , PT ;
+Instr 491 @ 0x1eb0 (7856) - @P0 FFMA R4, R2, 1.84467440737095516160e+19, RZ ;
+Instr 492 @ 0x1ec0 (7872) - @P0 MUFU.RSQ R3, R4 ;
+Instr 493 @ 0x1ed0 (7888) - @P0 FMUL.FTZ R5, R4, R3 ;
+Instr 494 @ 0x1ee0 (7904) - @P0 FMUL.FTZ R9, R3, 0.5 ;
+Instr 495 @ 0x1ef0 (7920) - @!P0 IMAD.MOV.U32 R3, RZ, RZ, R2 ;
+Instr 496 @ 0x1f00 (7936) - @P0 FADD.FTZ R7, -R5, -RZ ;
+Instr 497 @ 0x1f10 (7952) - @P0 FFMA R8, R5, R7, R4 ;
+Instr 498 @ 0x1f20 (7968) - @P0 FFMA R8, R8, R9, R5 ;
+Instr 499 @ 0x1f30 (7984) - @P0 FMUL.FTZ R3, R8, 2.3283064365386962891e-10 ;
+Instr 500 @ 0x1f40 (8000) - IMAD.MOV.U32 R4, RZ, RZ, R3 ;
+Instr 501 @ 0x1f50 (8016) - MOV R2, R10 ;
+Instr 502 @ 0x1f60 (8032) - IMAD.MOV.U32 R3, RZ, RZ, 0x0 ;
+Instr 503 @ 0x1f70 (8048) - RET.REL.NODEC R2 0x0 ;
+Instr 504 @ 0x1f80 (8064) - SHF.R.U32.HI R9, RZ, 0x17, R3 ;
+Instr 505 @ 0x1f90 (8080) - BSSY B3, 0x25c0 ;
+Instr 506 @ 0x1fa0 (8096) - SHF.R.U32.HI R7, RZ, 0x17, R2 ;
+Instr 507 @ 0x1fb0 (8112) - LOP3.LUT R16, R9, 0xff, RZ, 0xc0, !PT ;
+Instr 508 @ 0x1fc0 (8128) - LOP3.LUT R13, R7, 0xff, RZ, 0xc0, !PT ;
+Instr 509 @ 0x1fd0 (8144) - IADD3 R11, R16, -0x1, RZ ;
+Instr 510 @ 0x1fe0 (8160) - IADD3 R9, R13, -0x1, RZ ;
+Instr 511 @ 0x1ff0 (8176) - ISETP.GT.U32.AND P0, PT, R11, 0xfd, PT ;
+Instr 512 @ 0x2000 (8192) - ISETP.GT.U32.OR P0, PT, R9, 0xfd, P0 ;
+Instr 513 @ 0x2010 (8208) - @!P0 IMAD.MOV.U32 R7, RZ, RZ, RZ ;
+Instr 514 @ 0x2020 (8224) - @!P0 BRA 0x21a0 ;
+Instr 515 @ 0x2030 (8240) - FSETP.GTU.FTZ.AND P0, PT, |R2|, +INF , PT ;
+Instr 516 @ 0x2040 (8256) - FSETP.GTU.FTZ.AND P1, PT, |R3|, +INF , PT ;
+Instr 517 @ 0x2050 (8272) - PLOP3.LUT P0, PT, P0, P1, PT, 0xa8, 0x0 ;
+Instr 518 @ 0x2060 (8288) - @P0 BRA 0x25a0 ;
+Instr 519 @ 0x2070 (8304) - LOP3.LUT P0, RZ, R3, 0x7fffffff, R2, 0xc8, !PT ;
+Instr 520 @ 0x2080 (8320) - @!P0 BRA 0x2580 ;
+Instr 521 @ 0x2090 (8336) - FSETP.NEU.FTZ.AND P4, PT, |R2|.reuse, +INF , PT ;
+Instr 522 @ 0x20a0 (8352) - FSETP.NEU.FTZ.AND P1, PT, |R3|, +INF , PT ;
+Instr 523 @ 0x20b0 (8368) - FSETP.NEU.FTZ.AND P0, PT, |R2|, +INF , PT ;
+Instr 524 @ 0x20c0 (8384) - @!P1 BRA !P4, 0x2580 ;
+Instr 525 @ 0x20d0 (8400) - LOP3.LUT P4, RZ, R2, 0x7fffffff, RZ, 0xc0, !PT ;
+Instr 526 @ 0x20e0 (8416) - PLOP3.LUT P1, PT, P1, P4, PT, 0x2a, 0x0 ;
+Instr 527 @ 0x20f0 (8432) - @P1 BRA 0x2560 ;
+Instr 528 @ 0x2100 (8448) - LOP3.LUT P1, RZ, R3, 0x7fffffff, RZ, 0xc0, !PT ;
+Instr 529 @ 0x2110 (8464) - PLOP3.LUT P0, PT, P0, P1, PT, 0x2a, 0x0 ;
+Instr 530 @ 0x2120 (8480) - @P0 BRA 0x2530 ;
+Instr 531 @ 0x2130 (8496) - ISETP.GE.AND P0, PT, R9, RZ, PT ;
+Instr 532 @ 0x2140 (8512) - ISETP.GE.AND P1, PT, R11, RZ, PT ;
+Instr 533 @ 0x2150 (8528) - @P0 MOV R7, RZ ;
+Instr 534 @ 0x2160 (8544) - @!P0 IMAD.MOV.U32 R7, RZ, RZ, -0x40 ;
+Instr 535 @ 0x2170 (8560) - @!P0 FFMA R2, R2, 1.84467440737095516160e+19, RZ ;
+Instr 536 @ 0x2180 (8576) - @!P1 FFMA R3, R3, 1.84467440737095516160e+19, RZ ;
+Instr 537 @ 0x2190 (8592) - @!P1 IADD3 R7, R7, 0x40, RZ ;
+Instr 538 @ 0x21a0 (8608) - LEA R12, R16, 0xc0800000, 0x17 ;
+Instr 539 @ 0x21b0 (8624) - BSSY B4, 0x2520 ;
+Instr 540 @ 0x21c0 (8640) - IMAD.IADD R12, R3, 0x1, -R12 ;
+Instr 541 @ 0x21d0 (8656) - IADD3 R3, R13, -0x7f, RZ ;
+Instr 542 @ 0x21e0 (8672) - MUFU.RCP R9, R12 ;
+Instr 543 @ 0x21f0 (8688) - FADD.FTZ R11, -R12, -RZ ;
+Instr 544 @ 0x2200 (8704) - IMAD R2, R3.reuse, -0x800000, R2 ;
+Instr 545 @ 0x2210 (8720) - IADD3 R12, R3, 0x7f, -R16 ;
+Instr 546 @ 0x2220 (8736) - IADD3 R12, R12, R7, RZ ;
+Instr 547 @ 0x2230 (8752) - FFMA R14, R9, R11, 1 ;
+Instr 548 @ 0x2240 (8768) - FFMA R18, R9, R14, R9 ;
+Instr 549 @ 0x2250 (8784) - FFMA R9, R2, R18, RZ ;
+Instr 550 @ 0x2260 (8800) - FFMA R14, R11, R9, R2 ;
+Instr 551 @ 0x2270 (8816) - FFMA R13, R18, R14, R9 ;
+Instr 552 @ 0x2280 (8832) - FFMA R14, R11, R13, R2 ;
+Instr 553 @ 0x2290 (8848) - FFMA R9, R18, R14, R13 ;
+Instr 554 @ 0x22a0 (8864) - SHF.R.U32.HI R2, RZ, 0x17, R9 ;
+Instr 555 @ 0x22b0 (8880) - LOP3.LUT R2, R2, 0xff, RZ, 0xc0, !PT ;
+Instr 556 @ 0x22c0 (8896) - IMAD.IADD R11, R2, 0x1, R12 ;
+Instr 557 @ 0x22d0 (8912) - IADD3 R2, R11, -0x1, RZ ;
+Instr 558 @ 0x22e0 (8928) - ISETP.GE.U32.AND P0, PT, R2, 0xfe, PT ;
+Instr 559 @ 0x22f0 (8944) - @!P0 BRA 0x2500 ;
+Instr 560 @ 0x2300 (8960) - ISETP.GT.AND P0, PT, R11, 0xfe, PT ;
+Instr 561 @ 0x2310 (8976) - @P0 BRA 0x24d0 ;
+Instr 562 @ 0x2320 (8992) - ISETP.GE.AND P0, PT, R11, 0x1, PT ;
+Instr 563 @ 0x2330 (9008) - @P0 BRA 0x2510 ;
+Instr 564 @ 0x2340 (9024) - ISETP.GE.AND P0, PT, R11, -0x18, PT ;
+Instr 565 @ 0x2350 (9040) - LOP3.LUT R9, R9, 0x80000000, RZ, 0xc0, !PT ;
+Instr 566 @ 0x2360 (9056) - @!P0 BRA 0x2510 ;
+Instr 567 @ 0x2370 (9072) - FFMA.RZ R2, R18.reuse, R14.reuse, R13.reuse ;
+Instr 568 @ 0x2380 (9088) - IADD3 R12, R11.reuse, 0x20, RZ ;
+Instr 569 @ 0x2390 (9104) - FFMA.RM R3, R18, R14.reuse, R13.reuse ;
+Instr 570 @ 0x23a0 (9120) - ISETP.NE.AND P4, PT, R11.reuse, RZ, PT ;
+Instr 571 @ 0x23b0 (9136) - LOP3.LUT R7, R2, 0x7fffff, RZ, 0xc0, !PT ;
+Instr 572 @ 0x23c0 (9152) - FFMA.RP R2, R18, R14, R13 ;
+Instr 573 @ 0x23d0 (9168) - ISETP.NE.AND P1, PT, R11, RZ, PT ;
+Instr 574 @ 0x23e0 (9184) - LOP3.LUT R7, R7, 0x800000, RZ, 0xfc, !PT ;
+Instr 575 @ 0x23f0 (9200) - IADD3 R11, -R11, RZ, RZ ;
+Instr 576 @ 0x2400 (9216) - SHF.L.U32 R12, R7, R12, RZ ;
+Instr 577 @ 0x2410 (9232) - FSETP.NEU.FTZ.AND P0, PT, R2, R3, PT ;
+Instr 578 @ 0x2420 (9248) - SEL R2, R11, RZ, P4 ;
+Instr 579 @ 0x2430 (9264) - ISETP.NE.AND P1, PT, R12, RZ, P1 ;
+Instr 580 @ 0x2440 (9280) - SHF.R.U32.HI R2, RZ, R2, R7 ;
+Instr 581 @ 0x2450 (9296) - PLOP3.LUT P0, PT, P0, P1, PT, 0xa8, 0x0 ;
+Instr 582 @ 0x2460 (9312) - SHF.R.U32.HI R12, RZ, 0x1, R2 ;
+Instr 583 @ 0x2470 (9328) - SEL R3, RZ, 0x1, !P0 ;
+Instr 584 @ 0x2480 (9344) - LOP3.LUT R3, R3, 0x1, R12, 0xf8, !PT ;
+Instr 585 @ 0x2490 (9360) - LOP3.LUT R3, R3, R2, RZ, 0xc0, !PT ;
+Instr 586 @ 0x24a0 (9376) - IMAD.IADD R12, R12, 0x1, R3 ;
+Instr 587 @ 0x24b0 (9392) - LOP3.LUT R9, R12, R9, RZ, 0xfc, !PT ;
+Instr 588 @ 0x24c0 (9408) - BRA 0x2510 ;
+Instr 589 @ 0x24d0 (9424) - LOP3.LUT R9, R9, 0x80000000, RZ, 0xc0, !PT ;
+Instr 590 @ 0x24e0 (9440) - LOP3.LUT R9, R9, 0x7f800000, RZ, 0xfc, !PT ;
+Instr 591 @ 0x24f0 (9456) - BRA 0x2510 ;
+Instr 592 @ 0x2500 (9472) - LEA R9, R12, R9, 0x17 ;
+Instr 593 @ 0x2510 (9488) - BSYNC B4 ;
+Instr 594 @ 0x2520 (9504) - BRA 0x25b0 ;
+Instr 595 @ 0x2530 (9520) - LOP3.LUT R2, R3, 0x80000000, R2, 0x48, !PT ;
+Instr 596 @ 0x2540 (9536) - LOP3.LUT R9, R2, 0x7f800000, RZ, 0xfc, !PT ;
+Instr 597 @ 0x2550 (9552) - BRA 0x25b0 ;
+Instr 598 @ 0x2560 (9568) - LOP3.LUT R9, R3, 0x80000000, R2, 0x48, !PT ;
+Instr 599 @ 0x2570 (9584) - BRA 0x25b0 ;
+Instr 600 @ 0x2580 (9600) - MUFU.RSQ R9, -QNAN  ;
+Instr 601 @ 0x2590 (9616) - BRA 0x25b0 ;
+Instr 602 @ 0x25a0 (9632) - FADD.FTZ R9, R2, R3 ;
+Instr 603 @ 0x25b0 (9648) - BSYNC B3 ;
+Instr 604 @ 0x25c0 (9664) - MOV R11, 0x0 ;
+Instr 605 @ 0x25d0 (9680) - IMAD.MOV.U32 R2, RZ, RZ, R9 ;
+Instr 606 @ 0x25e0 (9696) - RET.REL.NODEC R10 0x0 ;
+Instr 607 @ 0x25f0 (9712) - BRA 0x25f0;
+Instr 608 @ 0x2600 (9728) - NOP;
+Instr 609 @ 0x2610 (9744) - NOP;
+Instr 610 @ 0x2620 (9760) - NOP;
+Instr 611 @ 0x2630 (9776) - NOP;
+Instr 612 @ 0x2640 (9792) - NOP;
+Instr 613 @ 0x2650 (9808) - NOP;
+Instr 614 @ 0x2660 (9824) - NOP;
+Instr 615 @ 0x2670 (9840) - NOP;
+Instr 616 @ 0x2680 (9856) - NOP;
+Instr 617 @ 0x2690 (9872) - NOP;
+Instr 618 @ 0x26a0 (9888) - NOP;
+Instr 619 @ 0x26b0 (9904) - NOP;
+Instr 620 @ 0x26c0 (9920) - NOP;
+Instr 621 @ 0x26d0 (9936) - NOP;
+Instr 622 @ 0x26e0 (9952) - NOP;
+Instr 623 @ 0x26f0 (9968) - NOP;
+0.10999999940395355
+kernel 0 - compute(float, int, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float) - #thread-blocks 1,  kernel instructions 37, total instructions 37
+  BRA = 2
+  BSSY = 1
+  BSYNC = 1
+  CALL.ABS.NOINC = 1
+  CALL.REL.NOINC = 0
+  DMUL = 0
+  EXIT = 1
+  F2F.F32.F64 = 0
+  F2F.F64.F32 = 1
+  F2I.NTZ = 0
+  FADD = 2
+  FADD.FTZ = 0
+  FCHK = 1
+  FFMA = 7
+  FFMA.RM = 0
+  FFMA.RP = 0
+  FFMA.RZ = 0
+  FMNMX = 0
+  FMUL = 0
+  FMUL.FTZ = 0
+  FRND.FLOOR = 1
+  FRND.TRUNC = 0
+  FSEL = 0
+  FSETP.EQ.AND = 0
+  FSETP.GE.AND = 0
+  FSETP.GEU.AND = 0
+  FSETP.GEU.FTZ.AND = 0
+  FSETP.GT.AND = 0
+  FSETP.GTU.AND = 1
+  FSETP.GTU.FTZ.AND = 0
+  FSETP.NEU.AND = 0
+  FSETP.NEU.FTZ.AND = 0
+  I2F.F64.S64 = 0
+  I2FP.F32.S32 = 0
+  IADD3 = 3
+  IADD3.X = 1
+  IMAD = 0
+  IMAD.IADD = 0
+  IMAD.MOV = 0
+  IMAD.MOV.U32 = 4
+  IMAD.SHL.U32 = 0
+  IMAD.U32 = 2
+  IMAD.WIDE.U32 = 0
+  IMAD.X = 0
+  ISETP.GE.AND = 0
+  ISETP.GE.U32.AND = 0
+  ISETP.GT.AND = 0
+  ISETP.GT.U32.AND = 0
+  ISETP.GT.U32.OR = 0
+  ISETP.NE.AND = 0
+  ISETP.NE.OR = 0
+  ISETP.NE.U32.AND = 0
+  LDG.E.CONSTANT = 0
+  LDL = 0
+  LEA = 0
+  LEA.HI = 0
+  LOP3.LUT = 0
+  MOV = 3
+  MUFU.EX2 = 0
+  MUFU.RCP = 1
+  MUFU.RSQ = 0
+  NOP = 0
+  PLOP3.LUT = 0
+  RET.REL.NODEC = 0
+  SEL = 0
+  SHF.L.U32 = 0
+  SHF.L.U32.HI = 0
+  SHF.R.S32.HI = 0
+  SHF.R.U32.HI = 0
+  STL = 0
+  STL.64 = 1
+  UIADD3 = 0
+  UIADD3.X = 0
+  ULDC = 1
+  ULDC.64 = 0
+  UMOV = 2
+instr_opcode_to_num_map.size() is 76

@@ -4,7 +4,7 @@ import re
 opt_levels = ["O0","O1","O2","O3"]
 extra_options = ["","_fastmath"]
 fp_instr = ["FADD",
-"FADD",
+"FADD32I",
 "FCHK",
 "FFMA32I",
 "FFMA",
@@ -17,9 +17,11 @@ fp_instr = ["FADD",
 "FSWZADD",
 "MUFU",
 "DADD",
+"DMNMX",
 "DFMA",
 "DMMA",
 "DMUL",
+"DSET",
 "DSETP"]
 def process_single_file(filename, instr_prefix,instr_complete):
     with open(filename) as f:
