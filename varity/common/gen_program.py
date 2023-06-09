@@ -431,7 +431,9 @@ class Program():
         h = h + "#include <stdio.h>\n"
         h = h + "#include <stdlib.h>\n"
         h = h + "#include <math.h>\n\n"
-        if self.device == True:
+        if self.device == "AMD":
+            h = h + "#include \"hip/hip_runtime.h\"\n\n"
+        if self.device != "host":
             h = h + "__global__\n"
         h = h + self.func.printCode()
         h = h + "\n" + self.printPointerInitFunction()
@@ -440,15 +442,37 @@ class Program():
         h = h + self.printInputVariables()
         return h
 
-    def printCode(self, device=False) -> (str,str):
+    def printCode(self, device="host") -> (str,str):
+        allowed_values=["AMD","NVIDIA","host"]
+        if device not in allowed_values:
+            raise ValueError(f"Invalid value for p1. Allowed values are: {', '.join(allowed_values)}")
         self.device = device
         c = self.printHeader()
         # call the function
-        if self.device == False:
+        if self.device == "host":
             c = c + "  compute(" + self.printFunctionParameters() + ");\n"
+        elif device == "AMD": # here we call a device kernel
+            c = c + "  compute<<<1,1>>>(" + self.printFunctionParameters() + ");\n"
+            c = c + "  hipDeviceSynchronize();\n"
         else: # here we call a device kernel
             c = c + "  compute<<<1,1>>>(" + self.printFunctionParameters() + ");\n"
             c = c + "  cudaDeviceSynchronize();\n"
+
+#    def printCode(self, device="host") -> (str,str):
+#	allowed_values = ["AMD","NVIDIA", "host"]
+#	if device not in allowed_values:
+#	    raise ValueError(f"Invalid value for p1. Allowed values are: {', '.join(allowed_values)}") 
+#	self.device = device
+#        c = self.printHeader()
+#        # call the function
+#        if self.device == "host":
+#            c = c + "  compute(" + self.printFunctionParameters() + ");\n"
+#        elif self.devide == "AMD": # here we call a device kernel
+#            c = c + "  compute<<<1,1>>>(" + self.printFunctionParameters() + ");\n"
+#            c = c + "  hipDeviceSynchronize();\n"
+#        else:# here we call a device kernel
+#            c = c + "  compute<<<1,1>>>(" + self.printFunctionParameters() + ");\n"
+#            c = c + "  cudaDeviceSynchronize();\n"
 
         # finalize main function
         c = c + "\n  return 0;\n"
@@ -456,10 +480,12 @@ class Program():
         allTypes = ",".join(id_generator.IdGenerator.get().printAllTypes())
         return (c, allTypes)
         
-    def compileProgram(self, device=False):
+    def compileProgram(self, device="host"):
         (code, allTypes) = self.printCode(device)
-        if self.device == False:
+        if self.device == "host":
             fileName = 'tmp.c'
+        elif self.device == "AMD":
+            fileName = 'tmp.hip'
         else:
             fileName = 'tmp.cu'
 
@@ -469,8 +495,10 @@ class Program():
     
         print("Compiling: " + fileName)
         try:
-            if self.device == False:
+            if self.device == "host":
                 cmd = "clang -std=c99 -o " + fileName + ".exe " + fileName
+            elif self.device == "AMD": # compile for device case
+                cmd = "hippc -o " + fileName + ".exe " + fileName
             else: # compile for device case
                 cmd = "nvcc -o " + fileName + ".exe " + fileName
 
@@ -483,8 +511,10 @@ class Program():
         print("Running...")
         input = self.getInput()
         try:
-            if self.device == False:
+            if self.device == "host":
                 cmd = "./tmp.c.exe " + input
+            elif self.device == "AMD":
+                cmd = "./tmp.hip.exe " + input
             else:
                 cmd = "./tmp.cu.exe " + input
 

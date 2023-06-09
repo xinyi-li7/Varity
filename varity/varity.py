@@ -18,16 +18,27 @@ import argparse
 def writeProgramCode(fileName):
     # Write C code
     p = gen_program.Program()
-    #(code, allTypes) = p.printCode()
-    #writeInputFile(fileName, allTypes)
-    #f = open(fileName, "w")
-    #f.write(code)
-    #f.close()
+    (code, allTypes) = p.printCode()
+    c_fileName = fileName + ".c"
+    #writeInputFile(c_fileName, allTypes)
+    writeInputFile(fileName, allTypes)
+    f = open(c_fileName, "w")
+    f.write(code)
+    f.close()
 
     # Write CUDA code
-    (code, allTypes) = p.printCode(True)
-    writeInputFile(fileName, allTypes)
-    f = open(fileName, "w")
+    (code, allTypes) = p.printCode("NVIDIA")
+    cuda_fileName = fileName + ".cu"
+    #writeInputFile(cuda_fileName, allTypes)
+    f = open(cuda_fileName, "w")
+    f.write(code)
+    f.close()
+
+    # Write HIP code
+    (code, allTypes) = p.printCode("AMD")
+    cuda_fileName = fileName + ".hip"
+    #writeInputFile(cuda_fileName, allTypes)
+    f = open(cuda_fileName, "w")
     f.write(code)
     f.close()
 
@@ -106,7 +117,8 @@ def generateTests():
         
         # Write the program source code
         for t in range(cfg.TESTS_PER_GROUP): 
-            fileName = p + "/_test_" + str(t+1) + ".cu"
+            #fileName = p + "/_test_" + str(t+1) + ".cu"
+            fileName = p + "/_test_" + str(t+1) 
             fileNameList.append(fileName)
 
     cpuCount = mp.cpu_count()
@@ -170,22 +182,35 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-g", "--generate", help="generate programs",action="store_true")
     parser.add_argument("-c", "--compile", type=str, help="compile programs in dir: COMPILE")
-    parser.add_argument("-r", "--run", type=str, help="run programs in dir: RUN")
+    parser.add_argument("-r", "--run",nargs=1, type=str, help="run programs in dir: RUN, need one argument after run to specify the device as host, AMD or NVIDIA")
     parser.add_argument("-d","--dump",type=str,help="dump the SASS codes for each file")
     args = parser.parse_args()
     
-    if len(sys.argv) == 1:
-        dir = generateTests()
-        compileTests(dir)
-        runTests(dir)
+#    if len(sys.argv) == 1:
+#        dir = generateTests()
+#        compileTests(dir)
+#        runTests(dir)
+#    else:
+    if args.generate:
+        generateTests()
+    if args.compile:
+        compileTests(args.compile)
+    if args.run:
+        device = args.run[0].lower()
+    if device == "host":
+        print("Running on the host device. To run on other devices, specify --run 'device_name'")
+        # runHost()
+        # runTests(args.run)
+        generateTests()
+    elif device == "amd":
+        # runAMD()
+        runTests(args.run)
+    elif device == "nvidia":
+        # runNVIDIA()
+        runTests(args.run)
     else:
-        if args.generate:
-            generateTests()
-        if args.compile:
-            compileTests(args.compile)
-        if args.run:
-            runTests(args.run)
-        if args.dump:
-            dumpSASS(args.dump)
+        print("Invalid device argument. Please use 'host', 'AMD', or 'NVIDIA'.")
+    if args.dump:
+        dumpSASS(args.dump)
 if __name__ == '__main__':
     main()
